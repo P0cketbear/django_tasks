@@ -23,7 +23,7 @@
             {% for message in room_messages %}
             <div>
 
-                <small>@{{message.user.username}} {{message.created|timesince}} ago </small>
+                <small><a href="{% url 'user-profile' room.host.id %}">@{{room.host.username}}</a> {{message.created|timesince}} ago </small>
                 <p>{{message.body}}</p>
                 {% if message.user == user %}
 
@@ -58,4 +58,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock content %}
